@@ -2,15 +2,24 @@
 <html lang="en">
 <head>
     <style>
-        #calculator{
-    border: 1px solid rgb(187, 183, 183);
+#calculator{
+    border: 2px solid rgb(15, 15, 15);
+    stroke: aquamarine;
     border-radius: 5px;
-    width: 200px;
+    width: 220px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    background-image: url('/static/images/image.png'); 
+    background-size: cover; 
+    background-position: center; 
+    color: white;
 }
 #display{
     margin: 10px;
     width: 85%;
-    font-size: 25px;
+    font-size: 18px;
+    border-radius: 5px;
 }
 .button-conatiner{
 display: flex;
@@ -21,18 +30,29 @@ flex-wrap: wrap;
     width: 45px;
     height:45px;
     margin: 3px;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
 }
+.button:hover {
+            background-color: #f0f0f0;
+        }
 
     </style>
     <title>Calculator</title>
     
 </head>
 <body>
+    <div>
+        <h1 style="text-align: center;">Milan Calculator</h1>
+    </div>
     <div id="calculator">
     <input type="text" id="display"readonly>
     <div class="button-conatiner">
         <button class="button" onClick="currentDisplay = '';
         document.querySelector('#display').value=currentDisplay;">C</button>
+        <button class="button" onclick="deleteLast()">Del</button>
         <button class="button" onClick="currentDisplay = currentDisplay +'1';
         document.querySelector('#display').value=currentDisplay;
         ">1</button>
@@ -88,7 +108,11 @@ flex-wrap: wrap;
     </div>
     <script>
         let currentDisplay='';
-        
+        function deleteLast() {
+            currentDisplay = currentDisplay.slice(0, -1);
+            document.querySelector('#display').value = currentDisplay;
+        }
+
     </script>
 </body>
 </html>
